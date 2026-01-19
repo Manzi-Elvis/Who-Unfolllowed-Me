@@ -29,6 +29,7 @@ async function main() {
   for (const user of notFollowingBack) {
     console.log(`- ${user}`);
   }
+  console.log("Token loaded:", !!process.env.GITHUB_TOKEN);
 }
 
 main().catch(err => {
