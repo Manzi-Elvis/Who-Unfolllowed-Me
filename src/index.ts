@@ -2,12 +2,12 @@ import { GitHubClient } from "./api/githubClient";
 import { RelationshipAnalyzer } from "./services/relationshipAnalyzer";
 
 async function main() {
-  console.log("\n🔍 GitHub Social Audit Tool\n");
+  console.log("\nGitHub Social Audit Tool\n");
 
   const username = process.argv[2];
 
   if (!username) {
-    console.error("❌ Please provide a GitHub username");
+    console.error("Please provide a GitHub username");
     console.log("Usage: npm start <username>");
     process.exit(1);
   }
@@ -25,7 +25,7 @@ async function main() {
     return;
   }
 
-  console.log("❌ Users you follow who DON'T follow you back:\n");
+  console.log("Users you follow who DON'T follow you back:\n");
   for (const user of notFollowingBack) {
     console.log(`- ${user}`);
   }
@@ -33,5 +33,5 @@ async function main() {
 }
 
 main().catch(err => {
-  console.error("🔥 Error:", err.message);
+  console.error("Error:", err.message);
 });
