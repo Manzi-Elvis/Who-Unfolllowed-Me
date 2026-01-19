@@ -6,10 +6,15 @@ export class GitHubClient {
   private headers: Record<string, string>;
 
   constructor(token?: string) {
-    this.headers = token
-      ? { Authorization: `token ${token}` }
-      : {};
+      this.headers = {
+            "User-Agent": "gh-social-audit"
+      };
+
+      if (token) {
+            this.headers["Authorization"] = `token ${token}`;
+      }
   }
+
 
   private async getAllPaginated(endpoint: string): Promise<string[]> {
     const results: string[] = [];
